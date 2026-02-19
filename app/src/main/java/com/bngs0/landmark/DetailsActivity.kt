@@ -16,11 +16,21 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(view)
 
         val intent = intent
-        val selectedLandMark = intent.getSerializableExtra("landmark") as LandMark //serializable oladuğundan dolayı sonradan diyoruz ki bu landmark sınıfından knk
+        //val selectedLandMark = intent.getSerializableExtra("landmark") as LandMark //serializable oladuğundan dolayı sonradan diyoruz ki bu landmark sınıfından knk
 
-        binding.nameText.text = selectedLandMark.name
-        binding.countryText.text = selectedLandMark.country
-        binding.imageView.setImageResource(selectedLandMark.image)
+        //val selectedLandMark = chosenLandMark
+
+        val selectedLandMark = MySingleton.chosenLandMark
+
+        selectedLandMark?.let {
+            binding.nameText.text = it.name
+            binding.countryText.text = it.country
+            binding.imageView.setImageResource(it.image)
+        }
+
+        /*binding.nameText.text = selectedLandMark?.name
+        binding.countryText.text = selectedLandMark?.country
+        binding.imageView.setImageResource(selectedLandMark?.image!!)*/
 
     }
 }

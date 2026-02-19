@@ -1,6 +1,7 @@
 package com.bngs0.landmark
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -8,9 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bngs0.landmark.databinding.ActivityMainBinding
 
+//var chosenLandMark : LandMark? = null
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var landMarKList : ArrayList<LandMark>
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         val colosseum = LandMark("Colosseum","Italy",R.drawable.colosseum)
         val eiffel = LandMark("Eiffel","France",R.drawable.eiffel)
         val londonBridge = LandMark("London Bridge","UK",R.drawable.londonbridge)
+
+        // val pisaBitMap= BitmapFactory.decodeResource(resources,R.drawable.pisa)  //pisa imagesinin farklı bir tutuluş tarzı
 
         landMarKList.add(pisa)
         landMarKList.add(colosseum)
