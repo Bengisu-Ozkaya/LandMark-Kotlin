@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bngs0.landmark.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         landMarKList.add(eiffel)
         landMarKList.add(londonBridge)
 
+        //RecyclerView
+        binding.recyclerView.layoutManager = LinearLayoutManager(this) // alt alta göster, yan yana isteseydim -> GridLayoutManager kullanırdım
+        val landMarkAdapter = LandMarkAdapter(landMarKList)
+        binding.recyclerView.adapter = landMarkAdapter
+
         //ListView Adapter
         /*val adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,landMarKList.map { landMark -> landMark.name })
         binding.listView.adapter = adapter //adapter ile listView'ı birbirine bağladık
@@ -45,8 +51,6 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(intent)
         }*/
-
-        //RecyclerView
 
     }
 
